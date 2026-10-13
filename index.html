@@ -4,172 +4,34 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Edwin Barchuro | Web Developer & Tutor</title>
-<style>
-  /* Reset & base */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background: linear-gradient(135deg, #0b1a2f, #000000);
-    color: #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  header {
-    text-align: center;
-    padding: 60px 20px 40px;
-    position: relative;
-  }
-
-  /* Profile spotlight glow */
-  header::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #0f4cff, transparent 70%);
-    z-index: 0;
-    filter: blur(50px);
-  }
-
-  .photo-wrapper {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 40px rgba(255,255,255,0.05);
-    position: relative;
-    z-index: 1;
-  }
-
-  .profile-pic {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-    transition: box-shadow 0.4s ease, transform 0.4s ease;
-    opacity: 0;
-    animation: fadeIn 1.5s ease forwards;
-  }
-
-  .profile-pic:hover {
-    box-shadow: 0 0 25px rgba(0, 140, 255, 0.6);
-    transform: scale(1.03);
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-top: 20px;
-    letter-spacing: 1px;
-    position: relative;
-    z-index: 1;
-  }
-
-  h2 {
-    color: #66b3ff;
-    font-weight: 400;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 1;
-  }
-
-  section {
-    max-width: 800px;
-    margin: 40px 20px;
-    background: rgba(20, 20, 20, 0.7);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
-    transition: box-shadow 0.3s;
-  }
-
-  section:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
-  }
-
-  h3 {
-    color: #66b3ff;
-    border-bottom: 2px solid #66b3ff;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-  }
-
-  a {
-    color: #66b3ff;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  a:hover {
-    text-decoration: underline;
-    color: #00ffff;
-    text-shadow: 0 0 8px #0f4cff;
-  }
-
-  ul {
-    padding-left: 20px;
-    margin-bottom: 10px;
-  }
-
-  footer {
-    text-align: center;
-    margin: 40px 0 20px;
-    color: #999;
-  }
-
-  /* Responsive */
-  @media(max-width:600px){
-    header::before {
-      width: 120px;
-      height: 120px;
-      top: 1rem;
-    }
-    .photo-wrapper {
-      width: 120px;
-      height: 120px;
-    }
-    .profile-pic {
-      width: 100px;
-      height: 100px;
-    }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="images/profile.jpg" type="image/jpeg">
+<link rel="manifest" href="site.webmanifest">
+<meta name="description" content="Edwin Barchuro — Web developer, tutor, and tech enthusiast. Portfolio showcasing projects, skills, and contact details.">
+<meta property="og:title" content="Edwin Barchuro | Web Developer & Tutor">
+<meta property="og:description" content="Web developer and tutor. Projects, skills, and contact information.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/profile.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b1a2f">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header>
   <div class="photo-wrapper">
-    <img class="profile-pic" alt="Edwin Barchuro" src="images/profile.jpg" />
+    <picture>
+      <source type="image/webp" srcset="images/profile.webp">
+      <img class="profile-pic" alt="Edwin Barchuro" src="images/profile.jpg" loading="lazy">
+    </picture>
   </div>
   <h1>Edwin Barchuro</h1>
   <h2>Web Developer | Tutor | Tech Enthusiast</h2>
   <p>“Building skills. Building the web.”</p>
 </header>
+
+<main id="main" tabindex="-1">
 
 <section>
   <h3>About Me</h3>
@@ -211,6 +73,8 @@
   <p>Email: <a href="mailto:barchuroedwin@gmail.com">barchuroedwin@gmail.com</a></p>
   <p>Phone: <a href="tel:+254708828173">+254 708 828 173</a></p>
 </section>
+
+</main>
 
 <footer>
   © 2025 Edwin Barchuro. All Rights Reserved.

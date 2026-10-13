@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kai-bar.github.io/kai-bar-glowing-couscous/sitemap.xml

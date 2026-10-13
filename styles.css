@@ -1,0 +1,86 @@
+/* Extracted styles from index.html
+   Added focus states, skip-link, and improved accessibility styles
+*/
+
+:root{
+  --bg-gradient: linear-gradient(135deg, #0b1a2f, #000000);
+  --muted: #e0e0e0;
+  --accent: #66b3ff;
+}
+
+/* Base reset */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: 'Poppins', sans-serif;
+  background:var(--bg-gradient);
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* Skip link */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus{
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  padding:0.5rem 0.75rem;
+  background:#fff;
+  color:#000;
+  border-radius:6px;
+  z-index:9999;
+}
+
+header{ text-align:center; padding:60px 20px 40px; position:relative }
+header::before{
+  content:''; position:absolute; top:2rem; left:50%; transform:translateX(-50%);
+  width:200px; height:200px; border-radius:50%; background:radial-gradient(circle,#0f4cff,transparent 70%);
+  z-index:0; filter:blur(50px);
+}
+
+.photo-wrapper{ width:180px; height:180px; border-radius:50%; background:radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%); display:flex; align-items:center; justify-content:center; box-shadow:0 0 40px rgba(255,255,255,0.05); position:relative; z-index:1 }
+.profile-pic{ width:160px; height:160px; border-radius:50%; object-fit:cover; box-shadow:0 0 15px rgba(0,123,255,0.3); transition:box-shadow 0.4s ease, transform 0.4s ease; opacity:0; animation:fadeIn 1.5s ease forwards }
+.profile-pic:hover{ box-shadow:0 0 25px rgba(0,140,255,0.6); transform:scale(1.03) }
+@keyframes fadeIn{ to{opacity:1} }
+
+h1{ font-size:2.5rem; color:#fff; margin-top:20px; letter-spacing:1px; position:relative; z-index:1 }
+h2{ color:var(--accent); font-weight:400; margin-bottom:30px; position:relative; z-index:1 }
+
+main{ width:100%; max-width:960px; padding:0 16px }
+section{ max-width:800px; margin:40px auto; background:rgba(20,20,20,0.7); padding:30px; border-radius:15px; box-shadow:0 0 20px rgba(0,0,255,0.4); transition:box-shadow 0.3s }
+section:hover{ box-shadow:0 0 25px rgba(0,123,255,0.6) }
+
+h3{ color:var(--accent); border-bottom:2px solid var(--accent); padding-bottom:8px; margin-bottom:15px }
+
+a{ color:var(--accent); text-decoration:none; transition:0.3s }
+a:hover{ text-decoration:underline; color:#00ffff; text-shadow:0 0 8px #0f4cff }
+
+ul{ padding-left:20px; margin-bottom:10px }
+footer{ text-align:center; margin:40px 0 20px; color:#999 }
+
+/* Focus outlines for keyboard users */
+:focus{ outline:3px solid rgba(102,179,255,0.35); outline-offset:3px }
+
+/* Responsive adjustments */
+@media (max-width:600px){
+  header::before{ width:120px; height:120px; top:1rem }
+  .photo-wrapper{ width:120px; height:120px }
+  .profile-pic{ width:100px; height:100px }
+  h1{ font-size:1.9rem }
+}
+
+/* Utility: visually-hidden */
+.visually-hidden{ position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap }
