@@ -1,220 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Edwin Barchuro | Web Developer & Tutor</title>
-<style>
-  /* Reset & base */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edwin Barchuro | CAD Designer | Photo Editor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    background: linear-gradient(135deg, #0b1a2f, #000000);
-    color: #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+    body {
+      background: linear-gradient(135deg, #0b1a2f, #05070d);
+      color: #ecf3ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-  header {
-    text-align: center;
-    padding: 60px 20px 40px;
-    position: relative;
-  }
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      position: relative;
+      width: 100%;
+    }
 
-  /* Profile spotlight glow */
-  header::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #0f4cff, transparent 70%);
-    z-index: 0;
-    filter: blur(50px);
-  }
-
-  .photo-wrapper {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.08) 0%, transparent 70%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 40px rgba(255,255,255,0.05);
-    position: relative;
-    z-index: 1;
-  }
-
-  .profile-pic {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-    transition: box-shadow 0.4s ease, transform 0.4s ease;
-    opacity: 0;
-    animation: fadeIn 1.5s ease forwards;
-  }
-
-  .profile-pic:hover {
-    box-shadow: 0 0 25px rgba(0, 140, 255, 0.6);
-    transform: scale(1.03);
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-top: 20px;
-    letter-spacing: 1px;
-    position: relative;
-    z-index: 1;
-  }
-
-  h2 {
-    color: #66b3ff;
-    font-weight: 400;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 1;
-  }
-
-  section {
-    max-width: 800px;
-    margin: 40px 20px;
-    background: rgba(20, 20, 20, 0.7);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 255, 0.4);
-    transition: box-shadow 0.3s;
-  }
-
-  section:hover {
-    box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
-  }
-
-  h3 {
-    color: #66b3ff;
-    border-bottom: 2px solid #66b3ff;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-  }
-
-  a {
-    color: #66b3ff;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  a:hover {
-    text-decoration: underline;
-    color: #00ffff;
-    text-shadow: 0 0 8px #0f4cff;
-  }
-
-  ul {
-    padding-left: 20px;
-    margin-bottom: 10px;
-  }
-
-  footer {
-    text-align: center;
-    margin: 40px 0 20px;
-    color: #999;
-  }
-
-  /* Responsive */
-  @media(max-width:600px){
     header::before {
-      width: 120px;
-      height: 120px;
-      top: 1rem;
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(39, 116, 255, 0.9), rgba(39, 116, 255, 0.1) 45%, transparent 70%);
+      filter: blur(60px);
+      z-index: 0;
     }
+
     .photo-wrapper {
-      width: 120px;
-      height: 120px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(255,255,255,0.05);
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      border: 2px solid rgba(102, 179, 255, 0.4);
     }
+
     .profile-pic {
-      width: 100px;
-      height: 100px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
     }
-  }
-</style>
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      color: #ffffff;
+      margin-top: 20px;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      color: #7ec2ff;
+      font-weight: 400;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.1rem, 2vw, 1.7rem);
+    }
+
+    .tagline {
+      color: #dfeaf7;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+      font-size: 1rem;
+    }
+
+    section {
+      max-width: 850px;
+      width: calc(100% - 24px);
+      margin: 28px 12px;
+      background: rgba(18, 20, 26, 0.82);
+      padding: 28px 24px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      border: 1px solid rgba(102, 179, 255, 0.14);
+    }
+
+    section:hover {
+      box-shadow: 0 0 25px rgba(0, 123, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    h3 {
+      color: #66b3ff;
+      border-bottom: 2px solid rgba(102, 179, 255, 0.6);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+    }
+
+    p, li {
+      color: #edf5ff;
+      font-size: 1rem;
+    }
+
+    a {
+      color: #7ec2ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #00d9ff;
+      text-decoration: underline;
+      text-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 22px;
+      margin: 10px 0;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .service-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(126, 194, 255, 0.2);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .service-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #90d0ff;
+    }
+
+    footer {
+      text-align: center;
+      margin: 30px 0 20px;
+      color: #b4c7dd;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header::before {
+        width: 140px;
+        height: 140px;
+        top: 1rem;
+      }
+
+      .photo-wrapper {
+        width: 128px;
+        height: 128px;
+      }
+
+      .profile-pic {
+        width: 108px;
+        height: 108px;
+      }
+
+      section {
+        padding: 22px 18px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="photo-wrapper">
+      <img class="profile-pic" alt="Edwin Barchuro" src="images/profile.jpg" />
+    </div>
+    <h1>Edwin Barchuro</h1>
+    <h2>CAD Designer | Photo Editor | Web Developer</h2>
+    <p class="tagline">“Turning ideas into clear designs, polished visuals, and digital solutions.”</p>
+  </header>
 
-<header>
-  <div class="photo-wrapper">
-    <img class="profile-pic" alt="Edwin Barchuro" src="images/profile.jpg" />
-  </div>
-  <h1>Edwin Barchuro</h1>
-  <h2>Web Developer | Tutor | Tech Enthusiast</h2>
-  <p>“Building skills. Building the web.”</p>
-</header>
+  <section>
+    <h3>About Me</h3>
+    <p>
+      I’m a creative and detail-oriented professional with a strong interest in design, digital creativity, and technology. I have studied <strong>Computer Aided Design (CAD)</strong>, where I learned how to produce accurate technical drawings, floor plans, and architectural layouts such as house plans. I also enjoy <strong>photo editing</strong>, helping images look cleaner, more attractive, and presentation-ready.
+    </p>
+    <p style="margin-top: 12px;">
+      In addition to design work, I continue to build my digital and web skills, including HTML, basic web development, and problem-solving in technology projects. I am passionate about learning, creating, and helping ideas become visible in a professional format.
+    </p>
+  </section>
 
-<section>
-  <h3>About Me</h3>
-  <p>
-    I’m a passionate educator and web developer with a degree in <strong>BSc. Agriculture Extension and Education</strong>. 
-    I teach in a Junior School and continuously build my skills online. Skilled in HTML, Microsoft Word, Excel, Windows activation, tutoring, 
-    and problem-solving in tech projects.
-  </p>
-</section>
+  <section>
+    <h3>Services</h3>
+    <div class="service-grid">
+      <div class="service-item">
+        <strong>House Plans</strong>
+        Drafting and design of residential floor layouts and architectural concepts.
+      </div>
+      <div class="service-item">
+        <strong>CAD Design</strong>
+        Technical drawing, space planning, and design presentation for practical projects.
+      </div>
+      <div class="service-item">
+        <strong>Photo Editing</strong>
+        Retouching, enhancement, and creative image editing for personal or business use.
+      </div>
+      <div class="service-item">
+        <strong>Web Development</strong>
+        Creating simple, clean, and functional digital experiences.
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h3>Projects</h3>
-  <ul>
-    <li><a href="https://kai-bar.github.io/lipa-mdogomdogo/" target="_blank">Lipa Mdogomdogo</a></li>
-    <li><a href="https://kai-bar.github.io/happy-hour-ltd/" target="_blank">Happy Hour Ltd</a></li>
-  </ul>
-</section>
+  <section>
+    <h3>Projects</h3>
+    <ul>
+      <li><a href="https://kai-bar.github.io/lipa-mdogomdogo/" target="_blank" rel="noreferrer">Lipa Mdogomdogo</a></li>
+      <li><a href="https://kai-bar.github.io/happy-hour-ltd/" target="_blank" rel="noreferrer">Happy Hour Ltd</a></li>
+      <li>Custom CAD floor plans and architectural drafting for residential or concept designs</li>
+      <li>Photo editing and design enhancement services for social media, presentations, and personal branding</li>
+    </ul>
+  </section>
 
-<section>
-  <h3>Skills</h3>
-  <ul>
-    <li>HTML Web Development</li>
-    <li>Microsoft Word & Excel (Perfect Proficiency)</li>
-    <li>Windows Activation & System Maintenance</li>
-    <li>Tutoring & Educational Guidance</li>
-  </ul>
-</section>
+  <section>
+    <h3>Skills</h3>
+    <ul>
+      <li>Computer Aided Design (CAD) and house plan drafting</li>
+      <li>Photo editing and image enhancement</li>
+      <li>HTML & basic web design</li>
+      <li>Microsoft Word & Excel</li>
+      <li>Windows activation and computer troubleshooting</li>
+      <li>Tutoring and educational guidance</li>
+    </ul>
+  </section>
 
-<section>
-  <h3>Interests</h3>
-  <p>
-    Outside work, I enjoy playing chess. View my profile at 
-    <a href="https://www.chess.com/member/Barchuro" target="_blank">chess.com/member/Barchuro</a>.
-  </p>
-</section>
+  <section>
+    <h3>Interests</h3>
+    <p>
+      Outside work, I enjoy exercising my mind by playing chess and continuing to grow my technical and creative abilities. I am also interested in design, digital creativity, and building practical solutions.
+    </p>
+  </section>
 
-<section>
-  <h3>Contact</h3>
-  <p>Email: <a href="mailto:barchuroedwin@gmail.com">barchuroedwin@gmail.com</a></p>
-  <p>Phone: <a href="tel:+254708828173">+254 708 828 173</a></p>
-</section>
+  <section>
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:barchuroedwin@gmail.com">barchuroedwin@gmail.com</a></p>
+    <p>Phone: <a href="tel:+254708828173">+254 708 828 173</a></p>
+  </section>
 
-<footer>
-  © 2025 Edwin Barchuro. All Rights Reserved.
-</footer>
-
+  <footer>
+    © 2025 Edwin Barchuro. All Rights Reserved.
+  </footer>
 </body>
 </html>
