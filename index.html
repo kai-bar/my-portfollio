@@ -3,13 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edwin Barchuro | CAD Designer | Photo Editor</title>
+  <title>Edwin Barchuro | CAD Designer & Photo Editor</title>
+  <meta name="description" content="Portfolio of Edwin Barchuro, CAD designer, photo editor, and web developer specializing in house plans, visual design, and digital solutions." />
   <style>
+    :root {
+      --bg-dark: #06131f;
+      --bg-mid: #0d1d2d;
+      --panel: rgba(14, 24, 36, 0.9);
+      --panel-soft: rgba(20, 32, 46, 0.9);
+      --line: rgba(120, 176, 255, 0.18);
+      --primary: #69b4ff;
+      --primary-strong: #2b9bff;
+      --primary-soft: #dff1ff;
+      --text: #edf6ff;
+      --muted: #b8c7d9;
+      --accent: #7ef0d0;
+      --shadow: rgba(0, 0, 0, 0.28);
+      --gold: #ffd166;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
 
     html {
@@ -17,266 +33,738 @@
     }
 
     body {
-      background: linear-gradient(135deg, #0b1a2f, #05070d);
-      color: #ecf3ff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      overflow-x: hidden;
+      font-family: 'Poppins', Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(43, 155, 255, 0.18), transparent 24%),
+        linear-gradient(135deg, var(--bg-dark), #050b12 45%, #04070b 100%);
+      color: var(--text);
       line-height: 1.6;
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px 30px;
-      position: relative;
-      width: 100%;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(39, 116, 255, 0.9), rgba(39, 116, 255, 0.1) 45%, transparent 70%);
-      filter: blur(60px);
-      z-index: 0;
-    }
-
-    .photo-wrapper {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 40px rgba(255,255,255,0.05);
-      position: relative;
-      z-index: 1;
-      margin: 0 auto;
-      border: 2px solid rgba(102, 179, 255, 0.4);
-    }
-
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-      animation: fadeIn 1.5s ease forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      color: #ffffff;
-      margin-top: 20px;
-      letter-spacing: 1px;
-      position: relative;
-      z-index: 1;
-    }
-
-    h2 {
-      color: #7ec2ff;
-      font-weight: 400;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-      font-size: clamp(1.1rem, 2vw, 1.7rem);
-    }
-
-    .tagline {
-      color: #dfeaf7;
-      font-style: italic;
-      position: relative;
-      z-index: 1;
-      font-size: 1rem;
-    }
-
-    section {
-      max-width: 850px;
-      width: calc(100% - 24px);
-      margin: 28px 12px;
-      background: rgba(18, 20, 26, 0.82);
-      padding: 28px 24px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0, 123, 255, 0.15);
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-      border: 1px solid rgba(102, 179, 255, 0.14);
-    }
-
-    section:hover {
-      box-shadow: 0 0 25px rgba(0, 123, 255, 0.25);
-      transform: translateY(-2px);
-    }
-
-    h3 {
-      color: #66b3ff;
-      border-bottom: 2px solid rgba(102, 179, 255, 0.6);
-      padding-bottom: 8px;
-      margin-bottom: 16px;
-      font-size: 1.4rem;
-    }
-
-    p, li {
-      color: #edf5ff;
-      font-size: 1rem;
+      overflow-x: hidden;
     }
 
     a {
-      color: #7ec2ff;
       text-decoration: none;
-      transition: 0.3s;
+      color: inherit;
     }
 
-    a:hover {
-      color: #00d9ff;
-      text-decoration: underline;
-      text-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    ul {
-      list-style: disc;
-      padding-left: 22px;
-      margin: 10px 0;
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .service-grid {
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(6, 19, 31, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 74px;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-soft);
+    }
+
+    .hero {
+      padding: 84px 0 34px;
+    }
+
+    .hero-inner {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1.02;
+      margin-bottom: 18px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    h1 .highlight {
+      color: var(--primary);
+    }
+
+    .lead {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 26px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: #02131d;
+      box-shadow: 0 15px 35px rgba(43, 155, 255, 0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.16);
+      color: var(--text);
+    }
+
+    .mini-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .stat {
+      min-width: 120px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--primary-soft);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .profile-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(22, 39, 57, 0.8), rgba(13, 25, 37, 0.9));
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.42);
+      padding: 22px;
+    }
+
+    .profile-visual {
+      background: linear-gradient(160deg, rgba(105,180,255,0.2), rgba(126,240,208,0.1));
+      border: 1px solid rgba(105,180,255,0.2);
+      border-radius: 22px;
+      min-height: 430px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-visual::before,
+    .profile-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(26px);
+      opacity: 0.7;
+    }
+
+    .profile-visual::before {
+      width: 180px;
+      height: 180px;
+      top: 24px;
+      right: 28px;
+      background: rgba(39, 155, 255, 0.28);
+    }
+
+    .profile-visual::after {
+      width: 220px;
+      height: 220px;
+      bottom: 12px;
+      left: 30px;
+      background: rgba(126,240,208,0.16);
+    }
+
+    .portrait {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.2);
+      box-shadow: 0 20px 45px rgba(10,20,30,0.45);
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .profile-badge {
+      position: absolute;
+      right: 26px;
+      bottom: 24px;
+      z-index: 2;
+      background: rgba(6, 19, 31, 0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.2);
+    }
+
+    .profile-badge strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--primary-soft);
+    }
+
+    .profile-badge span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    section {
+      padding: 36px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+    }
+
+    .panel {
+      background: rgba(15, 25, 36, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: var(--shadow) 0 18px 40px;
+    }
+
+    .panel p + p {
       margin-top: 16px;
     }
 
-    .service-item {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(126, 194, 255, 0.2);
+    .highlight-list {
+      list-style: none;
+      display: grid;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .highlight-list li {
+      display: flex;
+      gap: 14px;
+      align-items: start;
+      color: var(--text);
+    }
+
+    .check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(126,240,208,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(126,240,208,0.2);
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .services-grid,
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .service-card,
+    .work-card {
+      background: linear-gradient(180deg, rgba(17, 29, 42, 0.9), rgba(11, 19, 29, 0.9));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: rgba(0,0,0,0.18) 0 15px 32px;
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      background: rgba(105,180,255,0.12);
+      border: 1px solid rgba(105,180,255,0.22);
+    }
+
+    .service-card h3,
+    .work-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p,
+    .work-card p {
+      color: var(--muted);
+    }
+
+    .work-sample {
+      margin-top: 18px;
+      min-height: 180px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(105,180,255,0.16), rgba(126,240,208,0.12));
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-sample::before,
+    .work-sample::after {
+      content: "";
+      position: absolute;
       border-radius: 12px;
-      padding: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .service-item strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #90d0ff;
+    .work-sample::before {
+      width: 70%;
+      height: 46%;
+      left: 12%;
+      top: 18%;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.12);
     }
 
-    footer {
-      text-align: center;
-      margin: 30px 0 20px;
-      color: #b4c7dd;
+    .work-sample::after {
+      width: 35%;
+      height: 28%;
+      right: 12%;
+      bottom: 16%;
+      background: rgba(126,240,208,0.13);
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .step {
+      background: rgba(15, 25, 36, 0.78);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px 18px;
+      position: relative;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(105,180,255,0.12);
+      color: var(--primary-soft);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .step h3 {
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
       font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
-      header::before {
-        width: 140px;
-        height: 140px;
-        top: 1rem;
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: linear-gradient(180deg, rgba(18, 35, 51, 0.9), rgba(12, 20, 29, 0.9));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .contact-list {
+      margin-top: 12px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-list a {
+      color: var(--primary-soft);
+      font-weight: 500;
+    }
+
+    .contact-list span {
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .cta-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(105,180,255,0.18), rgba(126,240,208,0.1));
+      border-radius: 20px;
+      border: 1px solid rgba(105,180,255,0.2);
+      padding: 24px;
+    }
+
+    .cta-box h3 {
+      font-size: clamp(1.8rem, 2.7vw, 2.4rem);
+      margin-bottom: 12px;
+    }
+
+    footer {
+      padding: 26px 0 44px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .about-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
       }
 
-      .photo-wrapper {
-        width: 128px;
-        height: 128px;
+      .services-grid,
+      .work-grid,
+      .process {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 0;
       }
 
-      .profile-pic {
-        width: 108px;
-        height: 108px;
+      .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
-      section {
-        padding: 22px 18px;
+      .services-grid,
+      .work-grid,
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .profile-visual {
+        min-height: 360px;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: start;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="photo-wrapper">
-      <img class="profile-pic" alt="Edwin Barchuro" src="images/profile.jpg" />
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">Edwin Barchuro</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <h1>Edwin Barchuro</h1>
-    <h2>CAD Designer | Photo Editor | Web Developer</h2>
-    <p class="tagline">“Turning ideas into clear designs, polished visuals, and digital solutions.”</p>
   </header>
 
-  <section>
-    <h3>About Me</h3>
-    <p>
-      I’m a creative and detail-oriented professional with a strong interest in design, digital creativity, and technology. I have studied <strong>Computer Aided Design (CAD)</strong>, where I learned how to produce accurate technical drawings, floor plans, and architectural layouts such as house plans. I also enjoy <strong>photo editing</strong>, helping images look cleaner, more attractive, and presentation-ready.
-    </p>
-    <p style="margin-top: 12px;">
-      In addition to design work, I continue to build my digital and web skills, including HTML, basic web development, and problem-solving in technology projects. I am passionate about learning, creating, and helping ideas become visible in a professional format.
-    </p>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">Design • Editing • Digital Solutions</div>
+          <h1>I create <span class="highlight">clear designs</span> and polished visuals.</h1>
+          <p class="lead">
+            I’m Edwin Barchuro — a CAD designer, photo editor, and web developer focused on turning ideas into practical, professional, and visually appealing results.
+          </p>
 
-  <section>
-    <h3>Services</h3>
-    <div class="service-grid">
-      <div class="service-item">
-        <strong>House Plans</strong>
-        Drafting and design of residential floor layouts and architectural concepts.
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Hire Me</a>
+            <a class="btn btn-secondary" href="#portfolio">View Work</a>
+          </div>
+
+          <div class="mini-stats" aria-label="Quick stats">
+            <div class="stat">
+              <strong>3+</strong>
+              <span>Core skills</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Detail-focused</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Creative mindset</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-visual">
+            <img class="portrait" src="images/profile.jpg" alt="Edwin Barchuro portrait" />
+            <div class="profile-badge">
+              <strong>CAD • Photo</strong>
+              <span>Design & Editing</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="service-item">
-        <strong>CAD Design</strong>
-        Technical drawing, space planning, and design presentation for practical projects.
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About Me</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel">
+            <p>
+              I’m a creative and detail-oriented professional with a strong passion for design, visual communication, and digital creativity. My background in Computer Aided Design (CAD) has equipped me with the ability to create accurate technical drawings and structured layouts for practical and architectural work, including house plans and design concepts.
+            </p>
+            <p>
+              I also enjoy photo editing, where I enhance and refine images to make them more attractive, polished, and presentation-ready. Beyond design, I continue strengthening my web and digital skills, creating simple but effective solutions that combine visual appeal with usability.
+            </p>
+          </div>
+
+          <div class="panel">
+            <ul class="highlight-list">
+              <li><span class="check">✓</span><div><strong>CAD Design</strong><br />House plans, layouts, and technical design drawings.</div></li>
+              <li><span class="check">✓</span><div><strong>Photo Editing</strong><br />Retouching, enhancement, and presentation-quality image work.</div></li>
+              <li><span class="check">✓</span><div><strong>Web Development</strong><br />Clean and functional digital experiences using HTML and modern layout thinking.</div></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="service-item">
-        <strong>Photo Editing</strong>
-        Retouching, enhancement, and creative image editing for personal or business use.
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>Practical creative support tailored to property design, visual improvement, and digital presentation.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="icon-box">🏠</div>
+            <h3>House Plans</h3>
+            <p>Residential plan drafting, room layout planning, and concept development for functional design.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="icon-box">📐</div>
+            <h3>CAD Design</h3>
+            <p>Accurate technical drawings and structured design layouts for practical visual communication.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="icon-box">🖼️</div>
+            <h3>Photo Editing</h3>
+            <p>Image enhancement, retouching, color correction, and visual refinements for personal or business use.</p>
+          </article>
+        </div>
       </div>
-      <div class="service-item">
-        <strong>Web Development</strong>
-        Creating simple, clean, and functional digital experiences.
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured Work</h2>
+          <p>Examples of the kind of creative and technical work I can deliver.</p>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card">
+            <h3>Residential Floor Plan</h3>
+            <p>Designing home layouts with clear room organization and practical living flow.</p>
+            <div class="work-sample" aria-label="Floor plan sample"></div>
+          </article>
+
+          <article class="work-card">
+            <h3>Image Retouching</h3>
+            <p>Refining photographs for improved brightness, detail, and presentation quality.</p>
+            <div class="work-sample" aria-label="Photo editing sample"></div>
+          </article>
+
+          <article class="work-card">
+            <h3>Digital Design</h3>
+            <p>Building visually polished digital content and presentation-focused web layouts.</p>
+            <div class="work-sample" aria-label="Web design sample"></div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h3>Projects</h3>
-    <ul>
-      <li><a href="https://kai-bar.github.io/lipa-mdogomdogo/" target="_blank" rel="noreferrer">Lipa Mdogomdogo</a></li>
-      <li><a href="https://kai-bar.github.io/happy-hour-ltd/" target="_blank" rel="noreferrer">Happy Hour Ltd</a></li>
-      <li>Custom CAD floor plans and architectural drafting for residential or concept designs</li>
-      <li>Photo editing and design enhancement services for social media, presentations, and personal branding</li>
-    </ul>
-  </section>
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>How I Work</h2>
+          <p>Simple, efficient, and client-focused workflow from concept to final output.</p>
+        </div>
 
-  <section>
-    <h3>Skills</h3>
-    <ul>
-      <li>Computer Aided Design (CAD) and house plan drafting</li>
-      <li>Photo editing and image enhancement</li>
-      <li>HTML & basic web design</li>
-      <li>Microsoft Word & Excel</li>
-      <li>Windows activation and computer troubleshooting</li>
-      <li>Tutoring and educational guidance</li>
-    </ul>
-  </section>
+        <div class="process">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Discuss</h3>
+            <p>I listen to your need, goals, and preferred style.</p>
+          </div>
 
-  <section>
-    <h3>Interests</h3>
-    <p>
-      Outside work, I enjoy exercising my mind by playing chess and continuing to grow my technical and creative abilities. I am also interested in design, digital creativity, and building practical solutions.
-    </p>
-  </section>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Plan</h3>
+            <p>I map out the layout, design direction, and required deliverables.</p>
+          </div>
 
-  <section>
-    <h3>Contact</h3>
-    <p>Email: <a href="mailto:barchuroedwin@gmail.com">barchuroedwin@gmail.com</a></p>
-    <p>Phone: <a href="tel:+254708828173">+254 708 828 173</a></p>
-  </section>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Create</h3>
+            <p>I draft the work, refine details, and improve overall presentation.</p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">04</div>
+            <h3>Deliver</h3>
+            <p>I provide a polished final result ready for use or further refinement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-wrap">
+        <div class="contact-card">
+          <div class="section-head" style="margin-bottom: 16px;">
+            <h2>Contact</h2>
+          </div>
+          <p style="color: var(--muted);">
+            I’m available for design, editing, and digital project work. Let’s talk about your next idea.
+          </p>
+          <div class="contact-list">
+            <div>
+              <a href="mailto:barchuroedwin@gmail.com">barchuroedwin@gmail.com</a>
+              <span>Email</span>
+            </div>
+            <div>
+              <a href="tel:+254708828173">+254 708 828 173</a>
+              <span>Phone</span>
+            </div>
+            <div>
+              <a href="https://www.chess.com/member/Barchuro" target="_blank" rel="noreferrer">Chess profile</a>
+              <span>Personal interest</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <div>
+            <h3>Need a plan, a polished image, or a clean digital layout?</h3>
+            <a class="btn btn-primary" href="mailto:barchuroedwin@gmail.com">Let’s work together</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     © 2025 Edwin Barchuro. All Rights Reserved.
